@@ -1,0 +1,11 @@
+# Ignore build output
+bin/
+obj/
+*.dll
+*.pdb
+
+# Ignore user-specific files
+.vscode/
+.idea/
+*.user
+*.suo

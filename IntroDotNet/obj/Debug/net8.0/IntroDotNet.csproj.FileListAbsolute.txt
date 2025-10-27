@@ -1,0 +1,15 @@
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/IntroDotNet/bin/Debug/net8.0/IntroDotNet
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/IntroDotNet/bin/Debug/net8.0/IntroDotNet.deps.json
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/IntroDotNet/bin/Debug/net8.0/IntroDotNet.runtimeconfig.json
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/IntroDotNet/bin/Debug/net8.0/IntroDotNet.dll
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/IntroDotNet/bin/Debug/net8.0/IntroDotNet.pdb
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/IntroDotNet/obj/Debug/net8.0/IntroDotNet.GeneratedMSBuildEditorConfig.editorconfig
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/IntroDotNet/obj/Debug/net8.0/IntroDotNet.AssemblyInfoInputs.cache
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/IntroDotNet/obj/Debug/net8.0/IntroDotNet.AssemblyInfo.cs
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/IntroDotNet/obj/Debug/net8.0/IntroDotNet.csproj.CoreCompileInputs.cache
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/IntroDotNet/obj/Debug/net8.0/IntroDotNet.sourcelink.json
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/IntroDotNet/obj/Debug/net8.0/IntroDotNet.dll
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/IntroDotNet/obj/Debug/net8.0/refint/IntroDotNet.dll
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/IntroDotNet/obj/Debug/net8.0/IntroDotNet.pdb
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/IntroDotNet/obj/Debug/net8.0/IntroDotNet.genruntimeconfig.cache
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/IntroDotNet/obj/Debug/net8.0/ref/IntroDotNet.dll

@@ -1,0 +1,14 @@
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/HelloCSharp/bin/Debug/net8.0/HelloCSharp
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/HelloCSharp/bin/Debug/net8.0/HelloCSharp.deps.json
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/HelloCSharp/bin/Debug/net8.0/HelloCSharp.runtimeconfig.json
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/HelloCSharp/bin/Debug/net8.0/HelloCSharp.dll
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/HelloCSharp/bin/Debug/net8.0/HelloCSharp.pdb
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/HelloCSharp/obj/Debug/net8.0/HelloCSharp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/HelloCSharp/obj/Debug/net8.0/HelloCSharp.AssemblyInfoInputs.cache
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/HelloCSharp/obj/Debug/net8.0/HelloCSharp.AssemblyInfo.cs
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/HelloCSharp/obj/Debug/net8.0/HelloCSharp.csproj.CoreCompileInputs.cache
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/HelloCSharp/obj/Debug/net8.0/HelloCSharp.dll
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/HelloCSharp/obj/Debug/net8.0/refint/HelloCSharp.dll
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/HelloCSharp/obj/Debug/net8.0/HelloCSharp.pdb
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/HelloCSharp/obj/Debug/net8.0/HelloCSharp.genruntimeconfig.cache
+/Users/djidorot/Documents/GitHub/python-lesson/CSE325.001-NET-Software-Development/HelloCSharp/obj/Debug/net8.0/ref/HelloCSharp.dll

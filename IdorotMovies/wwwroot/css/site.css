@@ -20,3 +20,31 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* === Custom styling added for better form spacing === */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  padding: 0.5rem 0.75rem;      /* Adds space inside the fields */
+  border-radius: 0.375rem;      /* Slightly rounded corners for softer look */
+  border: 1px solid #ccc;       /* Ensure visible border */
+  font-size: 1rem;              /* Keep text readable */
+}
+
+/* Add a little breathing room between stacked form elements */
+form .row > [class*="col-"] {
+  margin-bottom: 0.75rem;
+}
+
+/* Optional: style the filter button for consistency */
+button.btn-primary {
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+}
+
+/* Optional hover enhancement */
+button.btn-primary:hover {
+  background-color: #1768e5;
+}

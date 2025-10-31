@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using MovieApp.Data; // <-- Add this at the top (namespace for your MovieContext)
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// ✅ Add this block to wire up EF Core + SQLite
+builder.Services.AddDbContext<MovieContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("MovieContext")));
 
 var app = builder.Build();
 
@@ -9,19 +16,20 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
+using (var scope = app.Services.CreateScope())
+    SeedData.Initialize(scope.ServiceProvider);
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthorization();
 
+// ✅ Set default route to Movies controller
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Movies}/{action=Index}/{id?}");
 
 app.Run();

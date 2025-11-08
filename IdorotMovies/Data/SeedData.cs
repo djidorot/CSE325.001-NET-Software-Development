@@ -1,15 +1,15 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using MovieApp.Models;
+using Microsoft.EntityFrameworkCore;
+using IdorotMovies.Models;
 
-namespace MovieApp.Data;
+namespace IdorotMovies.Data;
 
 public static class SeedData
 {
-    public static void Initialize(IServiceProvider serviceProvider)
+    public static void Initialize(IServiceProvider services)
     {
         using var context = new MovieContext(
-            serviceProvider.GetRequiredService<DbContextOptions<MovieContext>>());
+            services.GetRequiredService<DbContextOptions<MovieContext>>());
 
         if (context.Movie.Any()) return;
 

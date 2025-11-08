@@ -1,10 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using MovieApp.Models;
+using IdorotMovies.Models;
 
-namespace MovieApp.Data;
+namespace IdorotMovies.Data;
 
 public class MovieContext : DbContext
 {
     public MovieContext(DbContextOptions<MovieContext> options) : base(options) { }
-    public DbSet<Movie> Movie => Set<Movie>();
+
+    public DbSet<Movie> Movie { get; set; } = default!; // default! to satisfy nullable
 }

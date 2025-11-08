@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MovieApp.Models;
+namespace IdorotMovies.Models;
 
 public class Movie
 {

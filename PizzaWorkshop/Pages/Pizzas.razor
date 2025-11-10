@@ -1,0 +1,51 @@
+@page "/pizzas"
+@using System.Globalization
+
+<PageTitle>Pizzas</PageTitle>
+
+<h3>Pizza List</h3>
+
+@if (pizzas is null)
+{
+    <p>Loading…</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in pizzas)
+            {
+                <tr>
+                    <td>@p.Name</td>
+                    <td>@p.Price.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Pizza> pizzas;
+
+    protected override void OnInitialized()
+    {
+        pizzas = new()
+{
+new Pizza { Name = "Margherita", Price = 220m },
+new Pizza { Name = "Pepperoni", Price = 280m },
+new Pizza { Name = "Hawaiian", Price = 260m },
+};
+    }
+
+    public class Pizza
+    {
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+    }
+}

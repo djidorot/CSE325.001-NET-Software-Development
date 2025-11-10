@@ -1,6 +1,8 @@
 ﻿@inherits LayoutComponentBase
+
 <div class="page">
     <div class="sidebar">
+        <!-- Reference NavMenu from your Layout folder -->
         <NavMenu />
     </div>
 
@@ -12,5 +14,10 @@
         <article class="content px-4">
             @Body
         </article>
+
+        <!-- ✅ Assignment requirement: footer with your full name + country -->
+        <footer class="px-4 py-3 border-top text-muted">
+            © @DateTime.Now.Year • [Your Full Name] — Philippines
+        </footer>
     </main>
 </div>

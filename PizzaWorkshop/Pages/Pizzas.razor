@@ -1,11 +1,13 @@
 @page "/pizzas"
 @using System.Globalization
+@using Microsoft.AspNetCore.Components.Web
+
 
 <PageTitle>Pizzas</PageTitle>
 
 <h3>Pizza List</h3>
 
-@if (pizzas is null)
+@if (pizzas.Count == 0)
 {
     <p>Loading…</p>
 }
@@ -31,21 +33,23 @@ else
 }
 
 @code {
-    private List<Pizza> pizzas;
+    // ✅ Initialize immediately to avoid null warnings
+    private readonly List<Pizza> pizzas = new();
 
     protected override void OnInitialized()
     {
-        pizzas = new()
-{
+        pizzas.AddRange(new[]
+        {
 new Pizza { Name = "Margherita", Price = 220m },
 new Pizza { Name = "Pepperoni", Price = 280m },
 new Pizza { Name = "Hawaiian", Price = 260m },
-};
+});
     }
 
+    // ✅ Default string value prevents nullable warning
     public class Pizza
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
     }
 }

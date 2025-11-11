@@ -1,7 +1,33 @@
 ﻿@page "/"
+@using PizzaPH.Data
+@inject SpecialsService Specials
 
-<PageTitle>Home</PageTitle>
+<h1>PizzaPH 🍕</h1>
+<p class="lead">Get pizza specials below.</p>
 
-<h1>Hello, world!</h1>
+@if (specials is null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div class="pizza-list">
+        @foreach (var p in specials)
+        {
+            <div class="pizza-card">
+                <h3>@p.Name</h3>
+                <p>@p.Description</p>
+                <strong>@p.BasePrice.ToString("C")</strong> @* "C" uses en-PH we set in Program.cs *@
+            </div>
+        }
+    </div>
+}
 
-Welcome to your new app.
+@code {
+    private List<PizzaSpecial>? specials;
+
+    protected override async Task OnInitializedAsync()
+    {
+        specials = await Specials.GetSpecialsAsync();
+    }
+}

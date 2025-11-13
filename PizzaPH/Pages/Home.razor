@@ -15,6 +15,7 @@ else
         @foreach (var p in specials)
         {
             <div class="pizza-card">
+                <img src="@p.ImagePath" alt="@p.Name" class="pizza-img" />
                 <h3>@p.Name</h3>
                 <p>@p.Description</p>
                 <strong>@p.BasePrice.ToString("C")</strong> @* "C" uses en-PH we set in Program.cs *@

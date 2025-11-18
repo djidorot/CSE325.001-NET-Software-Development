@@ -1,0 +1,163 @@
+@using System.Drawing
+@using System.Collections.Generic
+@inject GameState State
+
+<HeadContent>
+    <style>
+        :root {
+            --board-bg:
+                @ColorTranslator.ToHtml(BoardColor)
+            ;
+            --player1:
+                @ColorTranslator.ToHtml(Player1Color)
+            ;
+            --player2:
+                @ColorTranslator.ToHtml(Player2Color)
+            ;
+        }
+    </style>
+</HeadContent>
+
+<nav>
+    @for (byte i = 0; i < 7; i++)
+    {
+        var col = i;
+        <span title="Click to play a piece" @onclick="() => PlayPiece(col)">🔽</span>
+    }
+</nav>
+
+<article class="mt-2">
+    @winnerMessage
+    <button style="@ResetStyle" @onclick="ResetGame">Reset the game</button>
+    <br />
+    <span class="alert-danger">@errorMessage</span>
+    <span class="alert-info">@CurrentTurn</span>
+</article>
+
+<div class="mt-3">
+    <div class="board">
+        @for (var i = 0; i < 42; i++)
+        {
+            <span class="container">
+                <span></span>
+            </span>
+        }
+    </div>
+
+    @for (var i = 0; i < 42; i++)
+    {
+        <span class="@pieces[i]"></span>
+    }
+</div>
+
+<!-- EXTRA FEATURE: Move history -->
+<section class="mt-3">
+    <h4>Move history</h4>
+    @if (moveHistory.Count == 0)
+    {
+        <p>No moves yet. Start the game!</p>
+    }
+    else
+    {
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Turn</th>
+                    <th>Player</th>
+                    <th>Column</th>
+                    <th>Row</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var move in moveHistory)
+                {
+                    <tr>
+                        <td>@move.TurnNumber</td>
+                        <td>@move.PlayerNumber</td>
+                        <td>@(move.Column + 1)</td>
+                        <td>@(move.Row + 1)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</section>
+
+@code {
+    // Parameters for customization (board + player colors)
+    [Parameter]
+    public Color BoardColor { get; set; } = ColorTranslator.FromHtml("yellow");
+
+    [Parameter]
+    public Color Player1Color { get; set; } = ColorTranslator.FromHtml("red");
+
+    [Parameter]
+    public Color Player2Color { get; set; } = ColorTranslator.FromHtml("blue");
+
+    // Visual pieces (CSS classes)
+    private string[] pieces = new string[42];
+    private string winnerMessage = string.Empty;
+    private string errorMessage = string.Empty;
+
+    private string CurrentTurn =>
+    (winnerMessage == string.Empty) ? $"Player {State.PlayerTurn}'s Turn" : "";
+
+    private string ResetStyle =>
+    (winnerMessage == string.Empty) ? "display: none;" : "";
+
+    // EXTRA FEATURE: record of moves
+    private record Move(int TurnNumber, int PlayerNumber, byte Column, int Row);
+    private readonly List<Move> moveHistory = new();
+
+    protected override void OnInitialized()
+    {
+        State.ResetBoard();
+    }
+
+    private void PlayPiece(byte col)
+    {
+        errorMessage = string.Empty;
+
+        try
+        {
+            var player = State.PlayerTurn;
+            var turn = State.CurrentTurn;
+            var landingRow = State.PlayPiece(col);
+
+            // CSS classes define player color, column, and drop animation
+            pieces[turn] = $"player{player} col{col} drop{landingRow}";
+
+            // Log the move in history (EXTRA FEATURE)
+            moveHistory.Add(new Move(
+            TurnNumber: turn + 1,
+            PlayerNumber: player,
+            Column: col,
+            Row: landingRow
+            ));
+        }
+        catch (ArgumentException ex)
+        {
+            errorMessage = ex.Message;
+        }
+
+        // Evaluate win / tie
+        winnerMessage = State.CheckForWin() switch
+        {
+            GameState.WinState.Player1_Wins => "Player 1 Wins!",
+            GameState.WinState.Player2_Wins => "Player 2 Wins!",
+            GameState.WinState.Tie => "It's a tie!",
+            _ => ""
+        };
+    }
+
+    private void ResetGame()
+    {
+        State.ResetBoard();
+        winnerMessage = string.Empty;
+        errorMessage = string.Empty;
+        pieces = new string[42];
+
+        // Clear move history too
+        moveHistory.Clear();
+    }
+}
